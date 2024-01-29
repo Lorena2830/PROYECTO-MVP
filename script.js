@@ -1,31 +1,13 @@
-var board = document.querySelector('#board')
 
-function Player (x, y) {
-    this.x = x
-    this.y = y
-    this.sprite = document.querySelector('#player')
-    this.girarElemento(); {
-        var grados = 0;
-        var intervalo = setInterval(function (){
-            grados += 90;
-            this.style.transform = ('rotate' + grados + 'deg');
-        }, 10);
-    }
-}
-var player = new Player(300, 325)
+const player = document.getElementById('player');
+let rotation = 0;
 
-setTimeout(function() {
-    clearInterval(intervalo);
-    elemento.style.transform = 'rotate(0deg)';
-  }, 500);
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'd' || event.key === 'D') {
+    rotation += 90;
+  } else if (event.key === 'a' || event.key === 'A') {
+    rotation -= 90;
+  }
 
-window.addEventListener('keydown', function(e){
- switch(e.key) {
-    case 'a':
-    case 'd':
-    case 'w':
-    case 's':
-      girarElemento()
-      break
- }
-})
+  player.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+});
