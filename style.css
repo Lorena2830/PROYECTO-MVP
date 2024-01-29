@@ -1,0 +1,14 @@
+#board {
+    height: 700px;
+    width: 650px;
+    background-color: green;
+    position: relative;
+}
+#player {
+    height: 50px;
+    width: 50px;
+    background: linear-gradient(blue, pink);
+    position: absolute;
+    top: 325px;
+    left: 300px;
+}
