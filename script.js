@@ -9,5 +9,6 @@ document.addEventListener('keydown', function(event) {
     rotation -= 90;
   }
 
-  player.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+  player.style.transform = `rotate(${rotation}deg)`;
+
 });
