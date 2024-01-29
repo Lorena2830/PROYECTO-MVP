@@ -13,7 +13,7 @@ document.addEventListener("keydown", function (event) {
 });
 
 function gameStart() {
-  var enemyId = setInterval(createEnemy, 5000); 
+  var enemyId = setInterval(createEnemy, 6000); 
 }
 function createEnemy () {
   var enemy = new Enemy(300, 650, board);
@@ -43,6 +43,7 @@ function Enemy(x, y, parent) {
     var newY = self.y + self.speed; 
     if (newY >= 0 && newY <= 325) {
       self.y = newY;
+
       self.sprite.style.top = self.y + "px";
     }
     if (self.y >= 325 && self.y <= 650) {
@@ -54,25 +55,19 @@ function Enemy(x, y, parent) {
   this.horizontalMovement = function () {
     var newX = self.x + self.speed; 
     if (newX >= 0 && newX <= 300) {
-      self.X = newX;
+      self.x = newX;
       self.sprite.style.left = self.x + "px";
     }
-    if (newX >= 325 && newX <= 600) {
-      var newX = self.x + self.speed * -1;
-      self.X = newX;
+    else {
+      newX = self.x + self.speed * -1;
+      self.x = newX;
       self.sprite.style.left = self.x + "px";
     }
   }
- this.timerId = setInterval(this.verticalMovement, 250)
- this.timerId = setInterval(this.horizontalMovement, 50)
+ this.timerId = setInterval(this.verticalMovement, 350)
+ this.timerId = setInterval(this.horizontalMovement, 350)
 }
 
 window.onload = function () {
   gameStart();
 };
-/*if (newY >= 0 && newY <= 650 && self.direction === -1){
-      self.y = newY;
-      self.sprite.style.top = self.y + "px";
-    }
-    };
-}*/
