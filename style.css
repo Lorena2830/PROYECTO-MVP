@@ -1,14 +1,25 @@
 #board {
     height: 700px;
     width: 650px;
-    background-color: green;
+    background-image: url(./img/Screenshot\ from\ 2024-01-29\ 15-59-39.png);
     position: relative;
+    background-repeat: no-repeat;
+    background-size: 650px 700px;
 }
 #player {
     height: 50px;
     width: 50px;
-    background: linear-gradient(blue, pink);
+    background-image: url(./img/made\ on\ make8bitart.com\ -\ Imgur.png);
     position: absolute;
     top: 325px;
     left: 300px;
+    background-size: 50px 50px;
+}
+  
+#arrow {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #F00;
+    display: none;
 }
