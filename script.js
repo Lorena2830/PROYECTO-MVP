@@ -13,13 +13,19 @@ document.addEventListener("keydown", function (event) {
 });
 
 function gameStart() {
-  var enemy = new Enemy(300, 650, board);
-  var enemy2 = new Enemy(0, 325, board);
-  enemy.insertEnemy();
-  var enemyId = setInterval(function () {
-    enemy.verticalMovement();
-  }, 300);
+  var enemyId = setInterval(createEnemy, 5000); 
 }
+function createEnemy () {
+  var enemy = new Enemy(300, 650, board);
+  enemy.insertEnemy();
+  var enemy2 = new Enemy(0, 325, board);
+   enemy2.insertEnemy();
+  var enemy3 = new Enemy(300, 0, board);
+  enemy3.insertEnemy();
+  var enemy4= new Enemy(600, 325, board);
+  enemy4.insertEnemy();
+}
+
 function Enemy(x, y, parent) {
   var self = this;
   this.x = x;
@@ -34,7 +40,7 @@ function Enemy(x, y, parent) {
     parent.appendChild(this.sprite);
   };
   this.verticalMovement = function () {
-    var newY = self.y + self.speed; /** self.direction;*/
+    var newY = self.y + self.speed; 
     if (newY >= 0 && newY <= 325) {
       self.y = newY;
       self.sprite.style.top = self.y + "px";
@@ -46,8 +52,19 @@ function Enemy(x, y, parent) {
     }
   };
   this.horizontalMovement = function () {
-    
-  };
+    var newX = self.x + self.speed; 
+    if (newX >= 0 && newX <= 300) {
+      self.X = newX;
+      self.sprite.style.left = self.x + "px";
+    }
+    if (newX >= 325 && newX <= 600) {
+      var newX = self.x + self.speed * -1;
+      self.X = newX;
+      self.sprite.style.left = self.x + "px";
+    }
+  }
+ this.timerId = setInterval(this.verticalMovement, 250)
+ this.timerId = setInterval(this.horizontalMovement, 50)
 }
 
 window.onload = function () {
