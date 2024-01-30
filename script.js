@@ -51,12 +51,13 @@ function createEnemy() {
 }
 function playerMovement() {
   if (player.isDead === true) {
-    console.log("dead")
+
     clearInterval(enemyIntervalId) // Paramos la generación de enemigos
     //enemies.forEach(function(enemy){  // Recorremos el array de enemigos y vamos parando su movimiento uno a uno
     //clearInterval(enemy.enemyIntervalId)
+    document.getElementById("gameOver").style.visibility="visible"
     }
-    window.alert('Game Over')
+    
     // Reseteamos la partida
   }
 
@@ -93,7 +94,10 @@ function Enemy(x, y, parent, rotation) {
       self.y = newY;
       self.sprite.style.top = self.y + "px";
     }
-  };
+    this.checkCollision()
+  }
+
+ 
 
   this.horizontalMovement = function () {
     var newX = self.x + self.speed;
@@ -192,3 +196,4 @@ document.addEventListener("DOMContentLoaded", function() {
     };
   }
 });
+
