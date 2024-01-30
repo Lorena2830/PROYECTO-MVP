@@ -35,11 +35,10 @@ padding-top: 2rem;
     background-color: #F00;
     display: none;
 }
-#enemy {
+.enemy {
     height: 50px;
     width: 50px;
-    background-color: rgb(218, 233, 16);
+    background-image:url(./img/746c445b-51b7-4bde-82b1-172b2ce1290011.png);
     position: absolute;
-    top: 600px;
-    left: 50px;
+    background-size: 50px 50px;
 }
