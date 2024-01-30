@@ -25,35 +25,33 @@ function createEnemy() {
 
   switch (randomDirection) {
     case 1:
-      new Enemy(300, 650, board, 0).insertEnemy();
+      new Enemy(300, 650, board).insertEnemy();
       break;
     case 2:
-      new Enemy(0, 325, board, 90).insertEnemy();
+      new Enemy(0, 325, board).insertEnemy();
       break;
     case 3:
-      new Enemy(300, 0, board, 180).insertEnemy();
+      new Enemy(300, 0, board).insertEnemy();
       break;
     case 4:
-      new Enemy(600, 325, board, 270).insertEnemy();
+      new Enemy(600, 325, board).insertEnemy();
       break;
   }
 }
 
-function Enemy(x, y, parent, rotation) {
+function Enemy(x, y, parent) {
   var self = this;
   this.x = x;
   this.y = y;
-  this.rotation = rotation;
   this.sprite = document.createElement("div");
   this.speed = 15;
 
   this.insertEnemy = function () {
-    this.sprite.setAttribute("class", "enemy");
+    this.sprite.setAttribute("id", "enemy");
     this.sprite.style.left = this.x + "px";
     this.sprite.style.top = this.y + "px";
-    this.sprite.style.transform = `rotate(${this.rotation}deg)`;
     parent.appendChild(this.sprite);
-    
+
     // Inicia el movimiento del enemigo después de insertarlo.
     this.startMovement();
   };
@@ -100,8 +98,6 @@ let lastShotTime = 0; //Flechas
 document.addEventListener("DOMContentLoaded", function() {
   const player = document.getElementById('player');
   const arrow = document.getElementById("arrow");
-     
-  
 
   document.addEventListener("keydown", function(event) {
     if (event.key === " " && canShoot()) {  
