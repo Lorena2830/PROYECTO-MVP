@@ -1,6 +1,17 @@
 var board = document.querySelector("#board");
-var player = document.querySelector("#player");
 let rotation = 0;
+
+function Player(x, y){
+  this.x = x
+  this.y = y
+  this.width = 50
+  this.height = 50
+  this.isDead = false
+  this.sprite = document.querySelector('#player')
+}
+ var player = new Player (325, 300, board)
+ var playerId ;
+ var enemyIntervalId;
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "d" || event.key === "D") {
@@ -9,14 +20,14 @@ document.addEventListener("keydown", function (event) {
     rotation -= 90;
   }
 
-  player.style.transform = `rotate(${rotation}deg)`;
+  player.sprite.style.transform = `rotate(${rotation}deg)`;
 });
 
 function gameStart() {
   // Llama a createEnemy una vez para comenzar la generación de enemigos.
   createEnemy();
   // Luego establece un intervalo para generar enemigos adicionales.
-  var enemyIntervalId = setInterval(createEnemy, 6000);
+  enemyIntervalId = setInterval(createEnemy, 6000);
 }
 
 function createEnemy() {
@@ -38,11 +49,24 @@ function createEnemy() {
       break;
   }
 }
+function playerMovement() {
+  if (player.isDead === true) {
+    console.log("dead")
+    clearInterval(enemyIntervalId) // Paramos la generación de enemigos
+    //enemies.forEach(function(enemy){  // Recorremos el array de enemigos y vamos parando su movimiento uno a uno
+    //clearInterval(enemy.enemyIntervalId)
+    }
+    window.alert('Game Over')
+    // Reseteamos la partida
+  }
+
 
 function Enemy(x, y, parent) {
   var self = this;
   this.x = x;
   this.y = y;
+  this,width = 50
+  this.height = 50
   this.sprite = document.createElement("div");
   this.speed = 15;
 
@@ -57,6 +81,7 @@ function Enemy(x, y, parent) {
   };
 
   this.verticalMovement = function () {
+    self.checkCollision()
     var newY = self.y + self.speed;
     if (newY >= 0 && newY <= 325) {
       self.y = newY;
@@ -70,6 +95,7 @@ function Enemy(x, y, parent) {
   };
 
   this.horizontalMovement = function () {
+    self.checkCollision()
     var newX = self.x + self.speed;
     if (newX >= 0 && newX <= 300) {
       self.x = newX;
@@ -81,11 +107,24 @@ function Enemy(x, y, parent) {
     }
   };
 
+  this.checkCollision = function() {
+    if ( 
+      this.x < player.x + player.width &&
+      this.y < player.y + player.height &&
+      this.x + 50 > player.x &&
+      this.y + 50 > player.y
+      ) {
+          player.isDead = true // Matamos al jugador en caso de haber colisionado con él
+        }
+  }
+
+
   this.startMovement = function () {
     // Inicia el movimiento vertical y horizontal simultáneamente.
     setInterval(this.verticalMovement, 350);
     setInterval(this.horizontalMovement, 350);
-  };
+    playerMovement()
+  }
 }
 
 window.onload = function () {
@@ -146,4 +185,4 @@ document.addEventListener("DOMContentLoaded", function() {
       arrow.style.display = "none";
     };
   }
-});
+})
