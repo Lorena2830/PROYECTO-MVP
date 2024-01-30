@@ -23,3 +23,11 @@
     background-color: #F00;
     display: none;
 }
+
+.enemy {
+    height: 50px;
+    width: 50px;
+    background-image:url(./img//746c445b-51b7-4bde-82b1-172b2ce12900\(1\)\(1\).png);
+    position: absolute;
+    background-size: 50px 50px;
+}
