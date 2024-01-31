@@ -11,6 +11,7 @@ function Arrow(x, y, direction = 0, arrEnemies, parent){
     this.arrowTimer;
     
     let lastShotTime = 0; 
+    var counter = document.getElementById('counter')
 
      Arrow.prototype.canShoot = function() {
        const currentTime = Date.now();
@@ -59,7 +60,6 @@ function Arrow(x, y, direction = 0, arrEnemies, parent){
             }
             self.sprite.style.left = self.x + 'px'
           } 
-          console.log(self.y)
           if(self.y <= 0 || self.y >= 700 || self.x <= 0 || self.x >= 650) {
             self.removeArrow();
           } 
@@ -73,10 +73,10 @@ function Arrow(x, y, direction = 0, arrEnemies, parent){
             self.x + self.width > enemy.x &&
             self.y+ self.height > enemy.y
             ) {
-              console.log(arrEnemies)
               self.removeArrow() 
               enemy.removeEnemy()
               arrEnemies.shift()
+              counter.innerText = parseInt(counter.innerText) + 100 + " COINS"
             }
             
           })

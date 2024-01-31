@@ -141,6 +141,15 @@ background-repeat: no-repeat;
   margin: 0;
   padding-right:20vw;
 }
+#counter {
+  position: absolute;
+  margin: 0;
+  height: 10vh;
+  width: 20vw;
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 50px;
+  text-align: start;
+}
 
 /* ------ FIN MAIN ------- */
 
