@@ -72,7 +72,6 @@ function createEnemy() {
       enemy = new Enemy(300, 0, board, 180, player)
       enemy.insertEnemy()
       arrEnemies.push(enemy)
-
       break;
       case 4:
        enemy = new Enemy(600, 325, board, 270, player)
