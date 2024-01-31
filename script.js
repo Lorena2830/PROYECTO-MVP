@@ -93,7 +93,6 @@ refresh.addEventListener('click', _ => {
 
 })
  
-=======
 var board = document.querySelector("#board");
 let rotation = 0;
 
@@ -105,7 +104,6 @@ function Player(x, y){
   this.isDead = false
   this.sprite = document.querySelector('#player')
 }
- var player = new Player (325, 300, board)
  var playerId ;
  var enemyIntervalId;
 
