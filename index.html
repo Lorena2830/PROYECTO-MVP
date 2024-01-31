@@ -4,13 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
+    <script type="module" src="./script.js" defer></script>
+    <script type="module" src="./player.js" defer></script>
+    <script type="module" src="./enemy.js"></script>
+    <script type="module" src="./flecha.js"></script>
+    
     <title>Robin</title>
 </head>
 <body>
-    <main id="board">
-    <div id="player"></div>
-    <div id="arrow"></div>
+    <header id="logo" class="centrado">
+       <img src="./img/header3.0.png" alt="">
+    </header>
+
+
+    <!-- <div> -->
+        <main class="centrado">
+        <div id="names">
+            <div id="score"></div>
+            <div id="lorena"></div>
+            <div id="pablo"></div>
+            <div id="aaron"></div>
+        </div>
+        <div id="board">
+            <div id="player"></div>
+            <div id="arrow"></div>
+
+        </div>
+
+    <div id="gameStart" class="absolute centrado">
+        <div class="imagen" style="background-image: url(img/OIG1.jpeg);"></div>
+
+        <div class="absolute">      
+            <h2 id="start-text">No olvides llevar tu dinero, será un placer quitártelo.</h2>
+            <button id="try" class="startbutton"> ¿somos buenos o malos?</button>
+        </div>
+    </div>
+
+    <div id="gameOver" class="absolute centrado">
+        <div class="imagen" style="background-image: url(img/OIG2.jpeg);"></div>
+
+        <div class="absolute">   
+            <h2 id="finish-text">Game Over</h2>
+            <button id="retry" class="endbutton">Retry  </button>
+        </div>
 </main>
+<!-- añadir  -->
+<footer class="centrado">
+    <div class="copy">
+        Robin Pixel - Realizado por Aarón González(x2), Lorena Hernández , Pablo Quintana y Abel Lopez.
+    </div>
+</footer>
+
+
 </body>
+   
 </html>
