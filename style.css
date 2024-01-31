@@ -1,174 +1,322 @@
 body{
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    position: relative;
-    background-color: #DDEDAA;
+  width: 100vw;
+  height: 100vh;
+  background-color: #DDEDAA;
+margin: 0;
+}
+
+
+/* ------------
+-- COMPARTIDO -- 
+--------------- */
+.centrado{
+display: inline-flex;
+justify-content: center;
+align-items: center;
+}
+
+.relative{
+position: relative;
+}
+
+.absolute{
+position: absolute;
+}
+/* ------------
+-- COMPARTIDO -- 
+--------------- */
+
+
+
+
+/* ------ HEADER ------- */
+header{
+width: 100vw;
+height: 130px;
+/* border: 1px solid red; */
 
 }
-#logo{
-padding-top: 2rem;
 
+header img{
+height: 80px;
 }
-#board {
-    height: 700px;
-    width: 650px;
-    background-image: url(./img/Screenshot\ from\ 2024-01-29\ 15-59-39.png);
-    position: relative;
-    background-repeat: no-repeat;
-    background-size: 650px 700px;
-    box-shadow: 0px 0px 3px 6px;
-}
-#player {
-    height: 50px;
-    width: 50px;
-    background-image: url(./img/made\ on\ make8bitart.com\ -\ Imgur.png);
-    position: absolute;
-    top: 325px;
-    left: 300px;
-    background-size: 50px 50px;
-}
+
+  /* ------ FIN  HEADER ------- */
+
+
+
+
   
-#arrow {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #F00;
-    display: none;
+/* ------ MAIN ------- */
+main{
+width: 100%;
+height: calc(100vh - 130px - 60px);
+/* border: 1px solid red; */
+}
+
+#board {
+height: 700px;
+width: 650px;
+background-image: url(./img/Screenshot\ from\ 2024-01-29\ 15-59-39.png);
+position: relative;
+background-repeat: no-repeat;
+background-size: 650px 700px;
+box-shadow: 0px 0px 3px 6px;
+
+}
+
+/*  -- GAME START/OVER  --  */
+#gameStart{
+width: 100vw;
+height: 100vh;
+top: 0px;
+left: 0px;
+text-align: center;
+visibility: visible;
+/* ACTIVAR AQUÍ */
+/* z-index: -1; */
+}
+#gameOver{
+width: 100vw;
+height: 100vh;
+top: 0px;
+left: 0px;
+text-align: center;
+visibility: hidden;
+/* ACTIVAR AQUÍ */
+/* z-index: -1; */
+}
+
+#gameStart .imagen{ 
+width: 100%;
+height: 100%;
+background-size: cover;
+background-position:center center;
+background-repeat: no-repeat;
+}
+
+#gameOver .imagen{ 
+width: 100%;
+height: 100%;
+background-size: cover;
+background-position:center top;
+background-repeat: no-repeat;
+}
+
+#names {
+  justify-content: center;
+  align-items:center;
+  padding-bottom: 20vh;
+  
+}
+#score{
+  background-image: url(./img/2543b6da41ce13244a403d4697e1bcd9.png);
+  width: 5vw;
+  height: 10vh;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding-right:20vw;
+}
+#pablo {
+  background-image: url(./img/ac241470c98f0759292fad730a717b15.png);
+  width: 3vw;
+  height: 5vh;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding-right:20vw;
+}
+#aaron {
+  background-image: url(./img/7c4a03d1826a042b0f5e53db5563b04f.png);
+  width: 3vw;
+  height: 5vh;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding-right:20vw;
+}
+#lorena {
+  background-image: url(./img/lore.png);
+  width: 3vw;
+  height: 5vh;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding-right:20vw;
+}
+
+/* ------ FIN MAIN ------- */
+
+
+/* -------- FOOTER ------ */
+footer{
+width: 100%;
+height: 60px;
+/* border: 1px solid red; */
+}
+
+.copy{
+color: red;
+font-size: 18px;
+font-weight: bold;
+text-align: center;
+}
+
+/* -------- FIN FOOTER ------ */
+
+
+#player {
+  height: 50px;
+  width: 50px;
+  background-image: url(./img/made\ on\ make8bitart.com\ -\ Imgur.png);
+  position: absolute;
+  top: 325px;
+  left: 300px;
+  background-size: 50px 50px;
+}
+
+.arrow {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image:url(./img/undefined_-_Imgur.png);
+  background-size: 20px 20px;
+  z-index: 1;
+  /* si falla poner display none */
 }
 .enemy {
-    height: 50px;
-    width: 50px;
-    background-image:url(./img/746c445b-51b7-4bde-82b1-172b2ce1290011.png);
-    position: absolute;
-    background-size: 50px 50px;
+  height: 50px;
+  width: 50px;
+  background-image:url(./img/746c445b-51b7-4bde-82b1-172b2ce1290011.png);
+  position: absolute;
+  background-size: 50px 50px;
 }
 
-    #gameOver{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        visibility: hidden;
-        position: absolute;
-        background-image: url(./img/OIG2.jpeg);
-        background-repeat: no-repeat;
-        background-size: 100%;
-        width: 100vw;
-        height: 100vh;
-        padding: 0;
-        margin: 0;
-    }
+
 
 #finish-text {
-    color: #fff;
-    font-size: 100px;
-    background-color: rgba(255, 255, 255, 0.2); 
-    border-radius: 2rem;
-  }
+  color: #fff;
+  font-size: 100px;
+  background-color: rgba(255, 255, 255, 0.2); 
+  border-radius: 2rem;
+  box-shadow: 0px 0px 3px 6px;
+}
 
-  /* Boton */
-  .button-49,
-  .button-49:after {
-    cursor: pointer;
-    width: 150px;
-    height: 76px;
-    line-height: 78px;
-    font-size: 20px;
-    font-family: 'Bebas Neue', sans-serif;
-    background: linear-gradient(45deg, transparent 5%, #BEBEBE 5%);
-    border: 0;
-    color: #ee0000;
-    letter-spacing: 3px;
-    box-shadow: 6px 0px 0px #ee0000;
-    outline: transparent;
-    position: relative;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
+/* Boton */
+.endbutton,
+.endbutton:after {
+  cursor: pointer;
+  width: 150px;
+  height: 76px;
+  line-height: 78px;
+  font-size: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  background: linear-gradient(45deg, transparent 5%, #BEBEBE 5%);
+  border: 0;
+  color: #ee0000;
+  letter-spacing: 3px;
+  box-shadow: 6px 0px 0px #ee0000;
+  outline: transparent;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.endbutton:after {
+  --slice-0: inset(  /* CSS */50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
   
-  .button-49:after {
-    --slice-0: inset(  /* CSS */50% 50% 50% 50%);
-    --slice-1: inset(80% -6px 0 0);
-    --slice-2: inset(50% -6px 30% 0);
-    --slice-3: inset(10% -6px 85% 0);
-    --slice-4: inset(40% -6px 43% 0);
-    --slice-5: inset(80% -6px 5% 0);
-    
-    content: 'ALTERNATE TEXT';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
-    text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
-    clip-path: var(--slice-0);
+  content: 'is this the end?';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+  text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+  clip-path: var(--slice-0);
+}
+
+.endbutton:hover:after {
+  animation: 1s glitch;
+  animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
   }
-  
-  .button-49:hover:after {
-    animation: 1s glitch;
-    animation-timing-function: steps(2, end);
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
   }
-  
-  @keyframes glitch {
-    0% {
-      clip-path: var(--slice-1);
-      transform: translate(-20px, -10px);
-    }
-    10% {
-      clip-path: var(--slice-3);
-      transform: translate(10px, 10px);
-    }
-    20% {
-      clip-path: var(--slice-1);
-      transform: translate(-10px, 10px);
-    }
-    30% {
-      clip-path: var(--slice-3);
-      transform: translate(0px, 5px);
-    }
-    40% {
-      clip-path: var(--slice-2);
-      transform: translate(-5px, 0px);
-    }
-    50% {
-      clip-path: var(--slice-3);
-      transform: translate(5px, 0px);
-    }
-    60% {
-      clip-path: var(--slice-4);
-      transform: translate(5px, 10px);
-    }
-    70% {
-      clip-path: var(--slice-2);
-      transform: translate(-10px, 10px);  margin: 0;
-      padding: 0;
-    }
-    80% {
-      clip-path: var(--slice-5);
-      transform: translate(20px, -10px);
-    }
-    90% {
-      clip-path: var(--slice-1);
-      transform: translate(-10px, 0px);
-    }
-    100% {
-      clip-path: var(--slice-1);
-      transform: translate(0);
-    }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
   }
-  
-  @media (min-width: 768px) {
-    .button-49,
-    .button-49:after {
-      width: 200px;
-      height: 86px;
-      line-height: 88px;
-    }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
   }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+  50% {   background-repeat: no-repeat;
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);  margin: 0;
+    padding: 0;
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .endbutton,
+  .endbutton:after {
+    width: 200px;
+    height: 86px;
+    line-height: 88px;
+  }
+}
+
+
+
+
+#start-text {
+color: #fff;
+font-size: 70px;
+text-align: center;
+background-color: rgba(218, 146, 12, 0.25); 
+border-radius: 2rem;
+box-shadow: 0px 0px 3px 6px;
+}
+/* Boton inicio*/
+
+.startbutton{
+cursor: pointer;
+width: 300px;
+height: 70px;
+border-radius: 2rem;
+background: rgba(218, 146, 12);
+border: 0;
+font-size: 20px;
+color:#363d23;
+box-shadow: 0px 0px 3px 6px;
+}

@@ -14,32 +14,11 @@ function Enemy(x, y, parent, direction, player) {
         this.sprite.setAttribute("class", "enemy");
         this.sprite.style.left = this.x + "px";
         this.sprite.style.top = this.y + "px";
-        console.log(this.direction)
         this.sprite.style.transform = `rotate(${this.direction}deg)`;
         parent.appendChild(this.sprite);
 
-        // Inicia el movimiento del enemigo después de insertarlo.
         this.startMovement();
-
-        
     };
-
-/*     this.move = function () {
-        let newY;
-        console.log(this.direction)
-        switch(this.direction){
-            case 0:
-                console.log(this.y +" " + this.speed)
-            newY = this.y - this.speed;
-            console.log(newY)
-            this.y = newY;
-            self.sprite.style.top = this.y + "px";
-          
-
-        }
-    } */
-
-
 
     this.verticalMovement = function () {
         var newY = self.y + self.speed;
@@ -77,8 +56,7 @@ function Enemy(x, y, parent, direction, player) {
             this.x + 50 > player.axisX &&
             this.y + 50 > player.axisY
         ) {
-            player.isDead = true // Matamos al jugador en caso de haber colisionado con él
-           // player.sprite.remove()
+            player.isDead = true 
             clearInterval(this.timerId)
            document.getElementById("gameOver").style.visibility = "visible"
 
@@ -91,14 +69,13 @@ function Enemy(x, y, parent, direction, player) {
         }else if (this.direction == 90 || this.direction == 270) {
             this.timerId = setInterval(self.horizontalMovement, 350);
         }
-        // Inicia el movimiento vertical y horizontal simultáneamente.
-        //setInterval(this.horizontalMovement, 350);
-       // playerMovement()
     }
 
     Enemy.prototype.removeEnemy = function () {
-        this.sprite.remove()
+        parent.removeChild(this.sprite)
+        clearInterval(this.timerId)
     }
+    
 }
 
 export { Enemy }
