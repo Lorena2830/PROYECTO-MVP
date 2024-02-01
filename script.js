@@ -3,11 +3,14 @@ import { Enemy } from "./enemy.js";
 import { Arrow } from "./flecha.js"
 
 var board = document.querySelector("#board");
+var backSound = new Audio ('audio/Y2meta (mp3cut.net).mp3')
+
 
 let play = document.getElementById('try');
 play.addEventListener('click', _ => {
   document.getElementById("gameStart").style.visibility = "hidden"
    gameStart();  
+   backSound.play();
 })
 var arrEnemies = []
 var player = new Player ()

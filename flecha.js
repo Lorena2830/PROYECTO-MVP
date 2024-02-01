@@ -1,3 +1,5 @@
+var shoot = new Audio ('audio/Video-sin-titulo--Hecho-con-Clipchamp-_1_.mp3')
+var hit = new Audio ('audio/Video-sin-titulo--Hecho-con-Clipchamp-_2_.mp3')
 
 function Arrow(x, y, direction = 0, arrEnemies, parent){
     var self = this;
@@ -31,6 +33,7 @@ function Arrow(x, y, direction = 0, arrEnemies, parent){
         this.sprite.style.top = this.y + "px";
         parent.appendChild(this.sprite)
         this.shootArrow()
+        shoot.play();
       }
 
       Arrow.prototype.shootArrow = function() { 
@@ -77,6 +80,7 @@ function Arrow(x, y, direction = 0, arrEnemies, parent){
               enemy.removeEnemy()
               arrEnemies.shift()
               counter.innerText = parseInt(counter.innerText) + 100 + " COINS"
+              hit.play();
             }
             
           })
